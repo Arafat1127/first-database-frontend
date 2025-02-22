@@ -28,7 +28,14 @@ function App() {
         'content-type': 'application/json'
       },
       body: JSON.stringify(product)
-    });
+    })
+      .then(res => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          alert('Product Added Successfully Done')
+          form.reset()
+        }
+      })
   }
 
   return (
